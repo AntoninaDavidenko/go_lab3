@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-калькулятор</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h1 class="h3 mb-0">Лабораторна робота 3</h1>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Середньодобова потужність, МВт:</label>
+                                <input type="text" name="pC" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Середньоквадратичне відхилення 1, МВт:</label>
+                                <input type="text" name="sigma1" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Середньоквадратичне відхилення 2, МВт:</label>
+                                <input type="text" name="sigma2" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Вартість електроенергії, кВт*год:</label>
+                                <input type="text" name="costB" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Розрахувати</button>
+                        </form>
+ 
+                        {{ if .FirstCheckProfit }}
+                        <div class="mt-4">
+                            <h2 class="h4 mb-3">Результати розрахунку:</h2>
+                            <div class="alert alert-info mt-3">
+                                <p class="mb-2">Прибуток до вдосконалення: {{ .FirstCheckProfit }} тис. грн</p>
+                                <p class="mb-0">Прибуток після вдосконалення: {{ .SecondCheckProfit }} тис. грн</p>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
